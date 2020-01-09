@@ -13,11 +13,26 @@ function App() {
 
         <div className="field">
             <p className="control has-icons-left">
-                <input className="input" type="email" placeholder="Amount" />
+                <input className="input" type="number" placeholder="Amount" />
                 <span className="icon is-small is-left">
                     <i className="fas fa-dollar-sign"></i>
                 </span>
             </p>
+            
+            <p className="control">
+                Include  &nbsp;
+
+                <label class="checkbox">
+                    <input type="checkbox" checked="true" />
+                    100's
+                </label>
+
+                <label class="checkbox">
+                    <input type="checkbox" checked="true" />
+                    20's
+                </label>
+            </p>
+            
         </div>
 
         <div class="control">
