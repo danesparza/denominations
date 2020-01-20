@@ -62,8 +62,7 @@ class DenomRow extends Component {
 
     OnValueChange = (e) => {
 
-        //  Don't update local state -- use the action to 
-        //  update the collection
+        //  Don't update local state -- use the action to update the store (and propagate new value through props)
         NumberActions.updateNumberRow(this.props.id, false, false, true, parseFloat(e.target.value));
     }
 
