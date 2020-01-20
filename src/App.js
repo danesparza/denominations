@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 //  Components
 import DenomRow from './components/DenomRow';
+import DenomTotals from './components/DenomTotals';
 
 //  Actions
 import NumberActions from './actions/NumberActions';
@@ -83,25 +84,7 @@ class App extends Component {
                     </div>                        
                 </div>
 
-                <nav className="panel totals">
-                    <div className="panel-heading">
-                        Total: $484
-                    </div>
-                    <div className="panel-block">
-                        <section className="hero">
-                            <div className="hero-body">
-                                <div className="container">
-                                    <h2 className="subtitle">
-                                        4 $100 <br/> 
-                                        2 $20 <br/>
-                                        3 $5 <br/>
-                                        34 $1 <br/>
-                                    </h2>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </nav>
+                <DenomTotals rows={this.state.rows} />
                 
             </React.Fragment>
         );

@@ -64,7 +64,7 @@ class DenomRow extends Component {
 
         //  Don't update local state -- use the action to 
         //  update the collection
-        NumberActions.updateNumberRow(this.props.id, false, false, true, e.target.value);
+        NumberActions.updateNumberRow(this.props.id, false, false, true, parseFloat(e.target.value));
     }
 
     RemoveRow = (e) => {
