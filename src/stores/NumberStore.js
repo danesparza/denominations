@@ -41,16 +41,34 @@ class NumberStore extends Store {
         this.__emitChange();
         break;
       case ActionTypes.REMOVE_ROW:
-        
-        let id = action.id;
 
         //  Filter out this id
-        let updatedRows = this.numbers.filter(r => r.id !== id);
+        let updatedRows = this.numbers.filter(r => r.id !== action.id);
 
         //  Set the new array collection
         this.numbers = updatedRows;    
 
         this.__emitChange();
+        break;
+      case ActionTypes.UPDATE_ROW:
+
+        //find the index of object from array that you want to update
+        let objIndex = this.numbers.findIndex(obj => obj.id === action.id);
+
+        // make new object of updated object.   
+        let updatedObj = { ...this.numbers[objIndex], hundreds: action.hundreds, twenties: action.twenties, fives: action.fives, value: action.value};
+
+        // make final new array of objects by combining updated object.
+        let updatedNumbers = [
+          ...this.numbers.slice(0, objIndex),
+          updatedObj,
+          ...this.numbers.slice(objIndex + 1),
+        ];
+
+        //  Update the contained array:
+        this.numbers = updatedNumbers;
+        this.__emitChange();
+        
         break;
       default:
       // no op

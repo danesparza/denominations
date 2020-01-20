@@ -24,6 +24,17 @@ class NumberActions {
 		});
 	}
 
+	updateNumberRow(id, hundreds, twenties, fives, value) {
+		AppDispatcher.dispatch({
+			actionType: ActionTypes.UPDATE_ROW,
+			id: id,
+			hundreds: hundreds,
+			twenties: twenties,
+			fives: fives,
+			value: value
+		});
+	}
+
 }
 
 export default new NumberActions();

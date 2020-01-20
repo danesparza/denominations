@@ -13,7 +13,7 @@ class DenomRow extends Component {
                     <div className="field-body">
                         <div className="field has-addons">
                             <div className="control is-expanded has-icons-left">
-                                <input className="input" type="number" placeholder="Amount" />
+                                <input className="input" type="number" placeholder="Amount" onChange={this.OnValueChange} value={this.props.value} />
                                 <span className="icon is-small is-left">
                                     <i className="fas fa-dollar-sign"></i>
                                 </span>
@@ -58,6 +58,13 @@ class DenomRow extends Component {
 
             </React.Fragment>
         );
+    }
+
+    OnValueChange = (e) => {
+
+        //  Don't update local state -- use the action to 
+        //  update the collection
+        NumberActions.updateNumberRow(this.props.id, false, false, true, e.target.value);
     }
 
     RemoveRow = (e) => {
