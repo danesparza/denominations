@@ -52,23 +52,14 @@ class NumberStore extends Store {
         break;
       case ActionTypes.UPDATE_ROW:
 
-        //find the index of object from array that you want to update
-        let objIndex = this.numbers.findIndex(obj => obj.id === action.id);
+        this.numbers = this.numbers.map(n =>
+          n.id === action.id
+            ? { ...n, hundreds: action.hundreds, twenties: action.twenties, fives: action.fives, value: action.value }
+            : n
+        );
 
-        // make new object of updated object.   
-        let updatedObj = { ...this.numbers[objIndex], hundreds: action.hundreds, twenties: action.twenties, fives: action.fives, value: action.value};
-
-        // make final new array of objects by combining updated object.
-        let updatedNumbers = [
-          ...this.numbers.slice(0, objIndex),
-          updatedObj,
-          ...this.numbers.slice(objIndex + 1),
-        ];
-
-        //  Update the contained array:
-        this.numbers = updatedNumbers;
         this.__emitChange();
-        
+
         break;
       default:
       // no op
