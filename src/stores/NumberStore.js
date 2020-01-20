@@ -10,7 +10,7 @@ class NumberStore extends Store {
     super(AppDispatcher);
 
     //  The set of number rows:
-    this.numbers = [];
+    this.numbers = [{id: 'c37fef88-d878-403c-a0c2-3cb9ec475313', hundreds: true, twenties: true, fives: true, value: 0}];
   }
 
   //  Get the rows
