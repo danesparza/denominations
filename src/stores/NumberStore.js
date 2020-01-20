@@ -9,7 +9,7 @@ class NumberStore extends Store {
   constructor() {
     super(AppDispatcher);
 
-    //  The set of number rows:
+    //  The set of number rows (with a default initial value):
     this.numbers = [{id: 'c37fef88-d878-403c-a0c2-3cb9ec475313', hundreds: true, twenties: true, fives: true, value: 0}];
   }
 
