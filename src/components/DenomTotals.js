@@ -39,7 +39,7 @@ class DenomTotals extends Component {
         for (var row of this.props.rows) {
             
             //  Operation initial number:
-            let number = row.value;
+            let number = row.value || 0;
 
             //  Operation output:
             let opValue = {value: 0, leftover: 0};
@@ -84,7 +84,7 @@ class DenomTotals extends Component {
         
 
         //  Total all the values:
-        var totalValues = this.props.rows.reduce((accum,item) => accum + item.value, 0);
+        var totalValues = this.props.rows.reduce((accum,item) => accum + (item.value || 0), 0);
 
         return (
             <nav className="panel totals">
