@@ -32,31 +32,7 @@ class App extends Component {
     componentWillUnmount() {
         //  Remove store listeners
         this.numberDataListener.remove();
-    }
-
-    howMany100s(amount) {
-        let result = {};
-        result.value = Math.floor(amount / 100);
-        result.leftover = amount % 100;
-
-        return result;
-    }
-
-    howMany20s(amount) {
-        let result = {};
-        result.value = Math.floor(amount / 20);
-        result.leftover = amount % 20;
-
-        return result;
-    }
-
-    howMany5s(amount) {
-        let result = {};
-        result.value = Math.floor(amount / 5);
-        result.leftover = amount % 5;
-
-        return result;
-    }
+    }    
 
     render() 
     {

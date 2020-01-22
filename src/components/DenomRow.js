@@ -32,22 +32,17 @@ class DenomRow extends Component {
                                 <p className="control has-text-grey-light">
                                 Include: 
                                 <label className="checkbox">
-                                    <input type="checkbox" className="includeOption" defaultChecked={true} />
+                                    <input type="checkbox" className="includeOption" defaultChecked="true" onChange={this.On100sChange} value={this.props.hundreds} />
                                     100's
                                 </label>
 
                                 <label className="checkbox">
-                                    <input type="checkbox" className="includeOption" defaultChecked={true} />
+                                    <input type="checkbox" className="includeOption" defaultChecked={true} onChange={this.On20sChange} value={this.props.twenties} />
                                     20's
                                 </label>
 
                                 <label className="checkbox">
-                                    <input type="checkbox" className="includeOption" defaultChecked={true} />
-                                    10's
-                                </label>
-
-                                <label className="checkbox">
-                                    <input type="checkbox" className="includeOption" defaultChecked={true} />
+                                    <input type="checkbox" className="includeOption" defaultChecked={true} onChange={this.On5sChange} value={this.props.fives} />
                                     5's
                                 </label>
                                 </p>                        
@@ -61,9 +56,23 @@ class DenomRow extends Component {
     }
 
     OnValueChange = (e) => {
-
         //  Don't update local state -- use the action to update the store (and propagate new value through props)
-        NumberActions.updateNumberRow(this.props.id, false, false, true, parseFloat(e.target.value));
+        NumberActions.updateNumberRow(this.props.id, this.props.hundreds, this.props.twenties, this.props.fives, parseFloat(e.target.value));
+    }
+
+    On100sChange = (e) => {
+        //  Don't update local state -- use the action to update the store (and propagate new value through props)
+        NumberActions.updateNumberRow(this.props.id, e.target.checked, this.props.twenties, this.props.fives, this.props.value);
+    }
+
+    On20sChange = (e) => {
+        //  Don't update local state -- use the action to update the store (and propagate new value through props)
+        NumberActions.updateNumberRow(this.props.id, this.props.hundreds, e.target.checked, this.props.fives, this.props.value);
+    }
+
+    On5sChange = (e) => {
+        //  Don't update local state -- use the action to update the store (and propagate new value through props)
+        NumberActions.updateNumberRow(this.props.id, this.props.hundreds, this.props.twenties, e.target.checked, this.props.value);
     }
 
     RemoveRow = (e) => {
