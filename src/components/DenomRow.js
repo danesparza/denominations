@@ -32,17 +32,17 @@ class DenomRow extends Component {
                                 <p className="control has-text-grey-light">
                                 Include: 
                                 <label className="checkbox">
-                                    <input type="checkbox" className="includeOption" defaultChecked="true" onChange={this.On100sChange} value={this.props.hundreds} />
+                                    <input type="checkbox" className="includeOption" onChange={this.On100sChange} checked={this.props.hundreds} />
                                     100's
                                 </label>
 
                                 <label className="checkbox">
-                                    <input type="checkbox" className="includeOption" defaultChecked={true} onChange={this.On20sChange} value={this.props.twenties} />
+                                    <input type="checkbox" className="includeOption" onChange={this.On20sChange} checked={this.props.twenties} />
                                     20's
                                 </label>
 
                                 <label className="checkbox">
-                                    <input type="checkbox" className="includeOption" defaultChecked={true} onChange={this.On5sChange} value={this.props.fives} />
+                                    <input type="checkbox" className="includeOption" onChange={this.On5sChange} checked={this.props.fives} />
                                     5's
                                 </label>
                                 </p>                        
