@@ -13,7 +13,7 @@ class DenomRow extends Component {
                     <div className="field-body">
                         <div className="field has-addons">
                             <div className="control is-expanded has-icons-left">
-                                <input className="input" type="number" placeholder="Amount" onChange={this.OnValueChange} value={this.props.value} />
+                                <input className="input" type="number" placeholder="Amount" onChange={this.OnValueChange} value={this.props.value} onFocus={this.handleFocus} autoFocus />
                                 <span className="icon is-small is-left">
                                     <i className="fas fa-dollar-sign"></i>
                                 </span>
@@ -78,6 +78,9 @@ class DenomRow extends Component {
     RemoveRow = (e) => {
         NumberActions.removeNumberRow(this.props.id);        
     }
+
+    //  When focus is switched to this control, select all text (make it easier to edit text)
+    handleFocus = (e) => e.target.select();
 
 }
 
